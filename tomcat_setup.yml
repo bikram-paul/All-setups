@@ -1,0 +1,35 @@
+- hosts: all
+  tasks:
+    - name: Download tomcat from dlcdn
+      get_url:
+        url: "https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.108/bin/apache-tomcat-9.0.108.tar.gz"
+        dest: "/root/"
+
+
+    - name: Untar the apache file
+      command: tar -zxvf apache-tomcat-9.0.108.tar.gz
+
+
+    - name: Rename the tomcat folder
+      command: mv apache-tomcat-9.0.108 tomcat
+      tags: abc
+
+
+    - name: Install Java
+      command: apt install openjdk-8-jdk -y
+
+
+    - name: Setting the reles in tomcat-users.xml file
+      template:
+        src: tomcat-users.xml
+        dest: /root/tomcat/conf/tomcat-users.xml
+
+
+    - name: Delete two lines in context.xml
+      template:
+        src: context.xml
+        dest: /root/tomcat/webapps/manager/META-INF/context.xml
+
+
+    - name: Start tomcat
+      shell: nohup /root/tomcat/bin/startup.sh
