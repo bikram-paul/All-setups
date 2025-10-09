@@ -1,6 +1,4 @@
 #!/bin/bash
-#set -e  # Exit immediately on error
-#set -o pipefail
 
 ### --- USER CONFIGURATION SECTION ---
 #AWS_ACCESS_KEY_ID="YOUR_ACCESS_KEY"
