@@ -26,4 +26,4 @@ sudo sysctl -w vm.max_map_count=262144
 sudo sysctl -w fs.file-max=65536
 
 #Start Sonarqube by running below command manually
-#sh /opt/sonarqube/bin/linux/sonar.sh start
+#sh /opt/sonarqube/bin/linux-x86-64/sonar.sh start
